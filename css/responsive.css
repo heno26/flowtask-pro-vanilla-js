@@ -1,0 +1,69 @@
+/* ==========================================================================
+   FlowTask Pro — Responsive behavior
+   Breakpoints: >=1200 desktop, 900-1199 laptop, 640-899 tablet, <640 mobile
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 899px) {
+  :root { --sidebar-width: 220px; }
+
+  .app-shell { grid-template-columns: 1fr; }
+
+  .sidebar {
+    position: fixed;
+    left: 0; top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.is-open { transform: translateX(0); }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    left: 0; right: 0; bottom: 0; top: var(--header-height);
+    background: rgba(10,11,20,0.4);
+    z-index: 34;
+  }
+  .sidebar-overlay.is-open { display: block; }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .topbar__search { max-width: none; }
+
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+  .page { padding: var(--space-4); }
+
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .board-column { flex: 1 0 240px; }
+
+  /* Calendar collapses to an agenda list on small screens */
+  .calendar { display: none; }
+  .calendar-agenda { display: flex; }
+}
+
+@media (max-width: 599px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+  .topbar { padding: 0 var(--space-3); gap: var(--space-2); }
+  .topbar__actions { gap: var(--space-2); }
+  .segmented__label { display: none; }
+  .segmented button { padding: var(--space-1) var(--space-2); }
+  .quick-add-label { display: none; }
+  #quick-add-btn { padding: var(--space-2); }
+  .page-header { flex-direction: column; align-items: stretch; }
+  .page-header__actions { width: 100%; }
+  .page-header__actions .btn { flex: 1; }
+  .modal-overlay { padding: var(--space-3); align-items: stretch; }
+  .modal { max-width: none; margin: auto 0; }
+}

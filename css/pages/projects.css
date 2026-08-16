@@ -1,0 +1,8 @@
+/* Projects page tweaks */
+.projects-toolbar {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}

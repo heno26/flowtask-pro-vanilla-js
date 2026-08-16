@@ -1,0 +1,23 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Test / coverage output
+coverage/
+test-results/
+playwright-report/
+
+# Temporary files
+*.tmp
+*.temp

@@ -1,0 +1,7 @@
+/* Analytics page tweaks */
+.analytics-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  padding: var(--space-1) 0;
+}

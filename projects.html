@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects · FlowTask Pro</title>
+<script>
+  (function () {
+    try {
+      var raw = localStorage.getItem('flowtask_settings_v1');
+      var theme = raw ? (JSON.parse(raw).theme || 'system') : 'system';
+      var resolved = theme === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : theme;
+      document.documentElement.setAttribute('data-theme', resolved);
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/utilities.css" />
+<link rel="stylesheet" href="css/pages/projects.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+  <div class="main">
+    <div id="topbar-root"></div>
+    <main class="page" id="main-content">
+
+      <div class="page-header">
+        <div class="page-header__title">
+          <h1>Projects</h1>
+          <p class="text-sm text-muted">Manage every project in your workspace.</p>
+        </div>
+        <div class="page-header__actions">
+          <button class="btn btn--primary" id="new-project-btn">New project</button>
+        </div>
+      </div>
+
+      <div class="projects-toolbar">
+        <div class="flex items-center gap-2">
+          <label class="text-sm flex items-center gap-2">
+            <input type="checkbox" id="show-archived" style="width:auto;" />
+            Show archived
+          </label>
+        </div>
+        <select id="project-sort" aria-label="Sort projects" style="width:auto;">
+          <option value="newest">Newest first</option>
+          <option value="name">Name (A–Z)</option>
+          <option value="due-date">Due date</option>
+          <option value="progress">Progress</option>
+        </select>
+      </div>
+
+      <div class="grid project-grid" id="projects-grid"></div>
+
+      <div class="empty-state" id="projects-empty" hidden>
+        <span>🗂️</span>
+        <h3>No projects yet</h3>
+        <p>Create a project to start organizing tasks into a board.</p>
+        <button class="btn btn--primary" id="empty-new-project-btn">Create your first project</button>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script type="module" src="js/pages/projects.js"></script>
+<script type="module">
+  document.getElementById('empty-new-project-btn')?.addEventListener('click', () => {
+    document.getElementById('new-project-btn').click();
+  });
+</script>
+</body>
+</html>

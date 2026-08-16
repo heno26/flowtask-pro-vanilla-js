@@ -1,0 +1,150 @@
+/* ==========================================================================
+   FlowTask Pro — Design Tokens
+   Every color, spacing, type and motion value the app uses lives here.
+   Signature idea: work moves through a pipeline, so the accent is
+   expressed as a two-stop "flow" gradient (indigo -> amber) used sparingly
+   on progress bars, column headers and the logotype.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: light theme ---- */
+  --color-bg: #F6F7FB;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EEF0F7;
+  --color-border: #E2E4EE;
+  --color-border-strong: #CBCEDD;
+
+  --color-ink: #14151F;
+  --color-ink-soft: #4C4F63;
+  --color-muted: #888CA0;
+
+  --color-accent: #4A54E1;       /* flow blue */
+  --color-accent-hover: #3B44C9;
+  --color-accent-soft: #EEEFFC;
+  --color-accent-ink: #FFFFFF;
+
+  --color-warm: #FF8A3D;         /* flow amber */
+  --color-warm-soft: #FFF1E4;
+
+  --color-success: #1E9E6C;
+  --color-success-soft: #E5F8EF;
+  --color-danger: #E5484D;
+  --color-danger-soft: #FDE9E9;
+  --color-warning: #C87A00;
+  --color-warning-soft: #FFF3DC;
+  --color-info: #2E7FD6;
+  --color-info-soft: #E7F1FC;
+
+  --gradient-flow: linear-gradient(90deg, var(--color-accent) 0%, var(--color-warm) 100%);
+
+  /* ---- Priority colors (never rely on color alone in UI copy/icons) ---- */
+  --color-priority-low: #2E7FD6;
+  --color-priority-medium: #C8890A;
+  --color-priority-high: #E5674D;
+  --color-priority-critical: #D3273E;
+
+  /* ---- Status colors ---- */
+  --color-status-backlog: #888CA0;
+  --color-status-todo: #4A54E1;
+  --color-status-in-progress: #C8890A;
+  --color-status-review: #7C4FD6;
+  --color-status-done: #1E9E6C;
+
+  /* ---- Typography ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.125rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 48px;
+  --space-9: 64px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* ---- Shadow ---- */
+  --shadow-sm: 0 1px 2px rgba(20, 21, 31, 0.06);
+  --shadow-md: 0 4px 16px rgba(20, 21, 31, 0.08);
+  --shadow-lg: 0 12px 32px rgba(20, 21, 31, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(74, 84, 225, 0.35);
+
+  /* ---- Motion ---- */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 320ms ease;
+
+  /* ---- Layout ---- */
+  --sidebar-width: 240px;
+  --header-height: 64px;
+  --container-max: 1440px;
+}
+
+[data-theme='dark'] {
+  --color-bg: #101119;
+  --color-surface: #1A1C27;
+  --color-surface-2: #21232F;
+  --color-border: #2C2F3E;
+  --color-border-strong: #3A3E52;
+
+  --color-ink: #F2F3F9;
+  --color-ink-soft: #C0C3D6;
+  --color-muted: #7D8197;
+
+  --color-accent: #6B74F0;
+  --color-accent-hover: #838AF3;
+  --color-accent-soft: #262A48;
+  --color-accent-ink: #FFFFFF;
+
+  --color-warm: #FF9C58;
+  --color-warm-soft: #3A2A1D;
+
+  --color-success: #34C98A;
+  --color-success-soft: #16332A;
+  --color-danger: #FF6B70;
+  --color-danger-soft: #3A1E22;
+  --color-warning: #E3A431;
+  --color-warning-soft: #3A2E14;
+  --color-info: #5AA5EE;
+  --color-info-soft: #17293C;
+
+  --color-priority-low: #5AA5EE;
+  --color-priority-medium: #E3A431;
+  --color-priority-high: #FF8A6B;
+  --color-priority-critical: #FF6376;
+
+  --color-status-backlog: #7D8197;
+  --color-status-todo: #6B74F0;
+  --color-status-in-progress: #E3A431;
+  --color-status-review: #A78BFA;
+  --color-status-done: #34C98A;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}

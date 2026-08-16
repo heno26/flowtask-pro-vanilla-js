@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · FlowTask Pro</title>
+<meta name="description" content="FlowTask Pro — an advanced project and task management dashboard." />
+<script>
+  (function () {
+    try {
+      var raw = localStorage.getItem('flowtask_settings_v1');
+      var theme = raw ? (JSON.parse(raw).theme || 'system') : 'system';
+      var resolved = theme === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : theme;
+      document.documentElement.setAttribute('data-theme', resolved);
+    } catch (e) { /* fall back to CSS default */ }
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/utilities.css" />
+<link rel="stylesheet" href="css/pages/dashboard.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+  <div class="main">
+    <div id="topbar-root"></div>
+    <main class="page" id="main-content">
+
+      <section class="welcome-banner">
+        <div>
+          <h1>Welcome back, <span id="welcome-name">there</span></h1>
+          <p>Here's what's moving across your projects today.</p>
+        </div>
+        <button class="btn btn--primary" id="banner-quick-add">Quick-add task</button>
+      </section>
+
+      <section aria-label="Key metrics">
+        <div class="grid kpi-grid" id="kpi-grid"></div>
+      </section>
+
+      <section class="grid dashboard-grid">
+        <div class="flex flex-col gap-4">
+          <div class="card">
+            <div class="page-header" style="margin-bottom: var(--space-3);">
+              <h3>Weekly activity</h3>
+            </div>
+            <div class="chart-card__canvas-wrap">
+              <canvas id="weekly-chart" role="img" aria-label="Tasks completed over the last 7 days"></canvas>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="page-header" style="margin-bottom: var(--space-2);">
+              <h3>Project progress</h3>
+              <a class="btn btn--ghost btn--sm" href="projects.html">View all</a>
+            </div>
+            <div class="grid project-grid" id="project-progress-cards"></div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-2);">Upcoming deadlines</h3>
+            <div id="deadlines-list"></div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-2);">Priority distribution</h3>
+            <div class="flex flex-col gap-2" id="priority-breakdown"></div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-bottom: var(--space-2);">Recent tasks</h3>
+            <div id="recent-tasks"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+<script type="module" src="js/pages/dashboard.js"></script>
+</body>
+</html>

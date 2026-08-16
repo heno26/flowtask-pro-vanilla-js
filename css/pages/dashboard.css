@@ -1,0 +1,33 @@
+/* Dashboard page — layout tweaks specific to index.html */
+.welcome-banner {
+  background: var(--gradient-flow);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.welcome-banner h1 { color: #fff; }
+.welcome-banner p { color: rgba(255,255,255,0.85); }
+.welcome-banner .btn--primary { background: rgba(255,255,255,0.16); }
+.welcome-banner .btn--primary:hover { background: rgba(255,255,255,0.26); }
+
+.deadline-item, .activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.deadline-item:last-child, .activity-item:last-child { border-bottom: none; }
+
+.priority-bar-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+.priority-bar-row .progress { flex: 1; }

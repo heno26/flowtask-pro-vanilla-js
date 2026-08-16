@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settings · FlowTask Pro</title>
+<script>
+  (function () {
+    try {
+      var raw = localStorage.getItem('flowtask_settings_v1');
+      var theme = raw ? (JSON.parse(raw).theme || 'system') : 'system';
+      var resolved = theme === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : theme;
+      document.documentElement.setAttribute('data-theme', resolved);
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/utilities.css" />
+<link rel="stylesheet" href="css/pages/settings.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="app-shell">
+  <div id="sidebar-root"></div>
+  <div class="main">
+    <div id="topbar-root"></div>
+    <main class="page" id="main-content">
+
+      <div class="page-header">
+        <div class="page-header__title">
+          <h1>Settings</h1>
+          <p class="text-sm text-muted">Local preferences, stored on this device only.</p>
+        </div>
+      </div>
+
+      <div class="grid settings-grid">
+
+        <div class="card">
+          <h3 style="margin-bottom:var(--space-3);">Profile</h3>
+          <div class="form-field">
+            <label for="setting-display-name">Display name</label>
+            <input id="setting-display-name" type="text" maxlength="40" />
+          </div>
+          <div class="form-field mt-2">
+            <label for="setting-initials">Avatar initials</label>
+            <input id="setting-initials" type="text" maxlength="2" style="max-width:80px;" />
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:var(--space-2);">Appearance</h3>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row__label">Theme</div>
+              <div class="settings-row__desc">Light, dark, or match your system.</div>
+            </div>
+            <select id="setting-theme" style="width:auto;">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="system">System</option>
+            </select>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row__label">Default view</div>
+              <div class="settings-row__desc">Where "Board" opens to by default.</div>
+            </div>
+            <select id="setting-default-view" style="width:auto;">
+              <option value="board">Board</option>
+              <option value="tasks">List</option>
+              <option value="calendar">Calendar</option>
+            </select>
+          </div>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row__label">Animations</div>
+              <div class="settings-row__desc">Enable interface transitions.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-animations" />
+              <span class="switch__track"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:var(--space-2);">Behavior</h3>
+          <div class="settings-row">
+            <div>
+              <div class="settings-row__label">Confirm before deleting</div>
+              <div class="settings-row__desc">Show a confirmation dialog for destructive actions.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="setting-confirm-delete" />
+              <span class="switch__track"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:var(--space-2);">Backup</h3>
+          <p class="text-sm text-muted mb-2">Export your workspace as a JSON file, or restore it from a previous backup.</p>
+          <div class="flex gap-3">
+            <button class="btn btn--secondary" id="export-data-btn">Export data</button>
+            <button class="btn btn--secondary" id="import-data-btn">Import backup</button>
+            <input type="file" id="import-file-input" accept="application/json" hidden />
+          </div>
+        </div>
+
+        <div class="card settings-danger-zone">
+          <h3 style="margin-bottom:var(--space-2);">Danger zone</h3>
+          <p class="text-sm mb-2">These actions cannot be undone.</p>
+          <div class="flex gap-3" style="flex-wrap:wrap;">
+            <button class="btn btn--secondary" id="reset-demo-btn">Reset to demo data</button>
+            <button class="btn btn--danger" id="reset-app-btn">Reset entire application</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:var(--space-2);">About</h3>
+          <p class="text-sm text-muted">FlowTask Pro — version <span id="app-version" class="text-mono">1.0.0</span></p>
+          <p class="text-xs text-muted mt-1">Runs entirely in your browser. All data is stored locally via LocalStorage — nothing is sent to a server.</p>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+<script type="module" src="js/pages/settings.js"></script>
+</body>
+</html>
