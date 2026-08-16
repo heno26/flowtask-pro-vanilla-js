@@ -6,7 +6,7 @@ Inspired by the workflow concepts of Trello, Jira, and Linear, with its own visu
 
 ![FlowTask Pro screenshot placeholder](flowtask-pro/screenshots/dashboard.png)
 
-**Live demo:** _add your deployed link here (e.g. GitHub Pages)_
+**Live Demo:** https://heno26.github.io/flowtask-pro-vanilla-js/
 
 ---
 
